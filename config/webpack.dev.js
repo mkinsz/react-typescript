@@ -20,7 +20,7 @@ module.exports = merge(common, {
     compress: true,
     open: false,
     host: '0.0.0.0',
-    port: 9528,
+    port: 9527,
     hot: true,
     https: false,
     inline: true,

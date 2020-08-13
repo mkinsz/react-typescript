@@ -1,32 +1,24 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 6, //也就是ES6语法支持的意思
-    sourceType: 'module',
+    ecmaVersion: 2018, // allows for the parsing of modern ECMAScript features
+    sourceType: 'module', // allows for the use of imports
     ecmaFeatures: {
+      jsx: true, // allow for the parsing of JSX
       modules: true
     }
   },
   extends: [
+    'plugin:react/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
+    'prettier/@typescript-eslint',
   ],
   plugins: ['react', '@typescript-eslint'],
   rules: {
-    // 'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    // 'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    //强制使用单引号
-    quotes: ['error', 'single'],
-    semi: ['error', 'always'],
-    // 关闭冲突规则
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true,
-        trailingComma: 'none',
-        bracketSpacing: true,
-        parser: 'babylon'
-      }
-    ]
-  }
+    'prettier/prettier': 'error',
+  },
+  env: {
+    browser: true
+}
 };
