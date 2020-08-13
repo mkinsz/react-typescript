@@ -23,10 +23,16 @@ module.exports = {
       {
         test: /\.(ts|tsx)?$/,
         exclude: /node_modules/,
-        loader: 'awesome-typescript-loader',
-        options: {
-          useBabel: true
-        }
+        loader: 'babel-loader',
+      },
+      {
+        test: /\.(c|le)ss$/,
+        use: ['style-loader', 'css-loader', config.lessLoader],
+        include: [/node_modules/, config.sourceDir]
+      },
+      {
+        test: /\.(scss|sass)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -37,18 +43,13 @@ module.exports = {
         }
       },
       {
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader',
         options: { limit: 8192 }
       },
       {
-        test: /\.(c|le)ss$/,
-        use: ['style-loader', 'css-loader', config.lessLoader],
-        include: [/node_modules/, config.sourceDir]
-      },
-      {
-        test: /\.(scss|sass)$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        test: /\.svg$/,
+        loader: '@svgr/webpack',
       },
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' }

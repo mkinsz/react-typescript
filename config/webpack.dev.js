@@ -5,6 +5,8 @@ const { merge } = require('webpack-merge');
 const config = require('./webpack.cfg');
 const common = require('./webpack.base');
 
+console.log('Env: ', process.env.NODE_ENV)
+
 module.exports = merge(common, {
   // Enable sourcemaps for debugging webpack's output.
   devtool: 'source-map',

@@ -1,13 +1,17 @@
 {
     "compilerOptions": {
-        "lib": ["es6", "dom"],
+        "lib": ["es7", "dom"],
         "jsx": "react",
-        "target": "es5",
-        "module": "es2015",
+        "target": "es6",
+        "module": "esnext",
         "moduleResolution": "node",
+        "esModuleInterop": true,
         "sourceMap": true,
         "allowJs": true,
         "outDir": "build",
+        "rootDirs": ["app/src"],
+        "importHelpers": true,
+        "resolveJsonModule": true,
         "experimentalDecorators": true,
         "forceConsistentCasingInFileNames": true,
         "removeComments": true,
@@ -22,5 +26,6 @@
         "skipLibCheck": true
     },
     "include": ["**/*.js", "**/*.ts", "**/*.tsx", ".prettierrc.js"],
-    "exclude": ["node_modules", "build"]
+    "exclude": ["node_modules", "build"],
+    "typeRoots": ["node", "node_modules/@types", "app/src/typings"]
 }
