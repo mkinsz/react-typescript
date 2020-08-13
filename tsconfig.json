@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "lib": ["es6", "dom"],
+        "jsx": "react",
+        "target": "es5",
+        "module": "es2015",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "allowJs": true,
+        "outDir": "build",
+        "experimentalDecorators": true,
+        "forceConsistentCasingInFileNames": true,
+        "removeComments": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "allowUnusedLabels": true,
+        "strictNullChecks": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "noUnusedLocals": false,
+        "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true
+    },
+    "include": ["**/*.js", "**/*.ts", "**/*.tsx", ".prettierrc.js"],
+    "exclude": ["node_modules", "build"]
+}
