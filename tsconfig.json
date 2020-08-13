@@ -10,6 +10,7 @@
         "allowJs": true,
         "outDir": "build",
         "rootDirs": ["app/src"],
+        "alwaysStrict": true,
         "importHelpers": true,
         "resolveJsonModule": true,
         "experimentalDecorators": true,
@@ -21,11 +22,11 @@
         "allowUnusedLabels": true,
         "strictNullChecks": true,
         "suppressImplicitAnyIndexErrors": true,
-        "noUnusedLocals": false,
+        "noUnusedLocals": true,
         "allowSyntheticDefaultImports": true,
-        "skipLibCheck": true
+        "skipLibCheck": true,
     },
-    "include": ["**/*.js", "**/*.ts", "**/*.tsx", ".prettierrc.js"],
+    "include": ["**/*.js", "**/*.ts", "**/*.tsx"],
     "exclude": ["node_modules", "build"],
     "typeRoots": ["node", "node_modules/@types", "app/src/typings"]
 }

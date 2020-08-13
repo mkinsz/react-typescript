@@ -1,15 +1,16 @@
-import React from 'react'
-import { Provider } from 'react-redux'
-import { Route } from 'react-router-dom'
+import React from "react";
+import { Provider } from "react-redux";
+import { Route, Switch } from "react-router-dom";
 import ParticlesBg from "particles-bg";
-// import Home from './home'
-import Login from './login'
-import Register from './register'
+import Home from "./home";
+import Login from "./login";
+import Register from "./register";
+import AuthRoute from "../components/authroute";
 
 const App = (props: { store: any }) => {
   // type ConfigProp = {
-  //   num: number[], rps: number, radius: number[], life: number[], v: number[], 
-  //   tha: number[], alpha: number[], scale: number[], body: string, position: any, 
+  //   num: number[], rps: number, radius: number[], life: number[], v: number[],
+  //   tha: number[], alpha: number[], scale: number[], body: string, position: any,
   //   color: string[], cross: string, random: number, g: number
   // }
 
@@ -31,10 +32,20 @@ const App = (props: { store: any }) => {
   // };
 
   type ConfigProp = {
-    num: number[], rps: number, radius: number[], life: number[], v: number[],
-    tha: number[], alpha: number[], scale: number[], position: any,
-    color: string[], cross: string, random: number, g: number
-  }
+    num: number[];
+    rps: number;
+    radius: number[];
+    life: number[];
+    v: number[];
+    tha: number[];
+    alpha: number[];
+    scale: number[];
+    position: any;
+    color: string[];
+    cross: string;
+    random: number;
+    g: number;
+  };
 
   const pgconfig: ConfigProp = {
     num: [4, 7],
@@ -44,25 +55,24 @@ const App = (props: { store: any }) => {
     v: [2, 3],
     tha: [-40, 40],
     alpha: [0.6, 0],
-    scale: [.1, 0.4],
+    scale: [0.1, 0.4],
     position: "all",
     color: ["random", "#ff0000"],
     cross: "dead",
     random: 15,
-    g: 1
+    g: 1,
   };
 
   return (
     <Provider store={props.store}>
-      <div>
-        {/* <Route path="/" component={Home} /> */}
-        <Route path="/" component={Login} />
+      <Switch>
+        <AuthRoute exact path="/" component={Home} />
+        <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-      </div>
-      <ParticlesBg type='custom' bg={true} config={pgconfig} />
+      </Switch>
+      <ParticlesBg type="custom" bg={true} config={pgconfig} />
     </Provider>
-  )
-}
-
+  );
+};
 
 export default App;
