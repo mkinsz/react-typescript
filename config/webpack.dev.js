@@ -24,7 +24,7 @@ module.exports = merge(common, {
     hot: true,
     https: false,
     inline: true,
-    // historyApiFallback: true,
+    historyApiFallback: true, // refresh get 404
     disableHostCheck: true,
     quiet: false,
     overlay: {
