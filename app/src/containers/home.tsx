@@ -23,6 +23,7 @@ const Home = (props: any) => {
     const location = useLocation();
 
     useEffect(() => {
+        console.log("Location: ", location.pathname);
         switch (location.pathname) {
             case "/dashboard":
                 setValue(0);

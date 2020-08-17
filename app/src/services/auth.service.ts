@@ -1,29 +1,15 @@
+import graphQLFetcher from "./service";
+import gql from "graphql-tag";
+
 export const userService = {
     login,
     logout,
     register,
 };
 
-const ServerUrl = "http://127.0.0.1:8080/graphql";
-
 function login(username: string, password: string) {
-    const requestOptions = {
-        method: "POST",
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-    };
-
-    return fetch(ServerUrl, requestOptions)
-        .then(handleResponse)
-        .then((user) => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem("user", JSON.stringify(user));
-
-            return user;
-        });
+    const query = `{ auth(input: { email: "${username}", password: "${password}" }) }`;
+    return graphQLFetcher({ query }).then(handleResponse);
 }
 
 function logout() {

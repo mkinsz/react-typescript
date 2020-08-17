@@ -9,30 +9,36 @@ export const userActions = {
 };
 
 function login(username: string, password: string) {
-    return (dispatch: any) => {
-        // dispatch(request({ name: username }));
-        // userService.login(username, password)
-        //     .then(
-        //         user => {
-        //             dispatch(success(user));
-        //             history.push('/');
-        //         },
-        //         error => {
-        //             dispatch(failure(error.toString()));
-        //             dispatch(alertActions.error(error.toString()));
-        //         }
-        //     );
-    };
+    // dispatch(request({ name: username }));
+    userService.login(username, password).then(({ data: { auth } }) => {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        localStorage.setItem("user", JSON.stringify(username));
+        history.push("/");
+        console.log("Login Repsonse: ", auth);
 
-    function request(user: string) {
-        return { type: AuthConsts.LOGIN_REQUEST, user };
-    }
-    function success(user: string) {
-        return { type: AuthConsts.LOGIN_SUCCESS, user };
-    }
-    function failure(error: string) {
-        return { type: AuthConsts.LOGIN_FAILURE, error };
-    }
+        return auth;
+    });
+    //     .then(
+    //         user => {
+    //             dispatch(success(user));
+    //             history.push('/');
+    //         },
+    //         error => {
+    //             dispatch(failure(error.toString()));
+    //             dispatch(alertActions.error(error.toString()));
+    //         }
+    //     );
+    // };
+
+    // function request(user: string) {
+    //     return { type: AuthConsts.LOGIN_REQUEST, user };
+    // }
+    // function success(user: string) {
+    //     return { type: AuthConsts.LOGIN_SUCCESS, user };
+    // }
+    // function failure(error: string) {
+    //     return { type: AuthConsts.LOGIN_FAILURE, error };
+    // }
 }
 
 function logout() {

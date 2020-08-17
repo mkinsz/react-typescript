@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
+import { Router } from "react-router-dom";
 import App from "./containers/app";
-import { configureStore } from "./helpers";
+import { configureStore, history } from "./helpers";
 
 const store = configureStore();
 
 ReactDOM.render(
-    <Router>
+    <Router history={history}>
         <App store={store} />
     </Router>,
     document.getElementById("root") as HTMLElement

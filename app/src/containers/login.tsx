@@ -19,6 +19,8 @@ import { useForm } from "react-hook-form";
 
 import Wrap from "../components/wrap";
 
+import { userActions } from "../actions";
+
 const useStyles = makeStyles((theme) => ({
     "@global": {
         body: {
@@ -57,10 +59,19 @@ const Copyright = () => {
     );
 };
 
+type SubmitProps = {
+    email: string;
+    password: string;
+    remember?: boolean;
+};
+
 const Login = () => {
     const classes = useStyles();
     const { handleSubmit, register, errors } = useForm();
-    const onSubmit = (values: object) => console.log("Values: ", values);
+    const onSubmit = (values: SubmitProps) => {
+        console.log("Values: ", values);
+        userActions.login(values.email, values.password);
+    };
 
     return (
         <Wrap title="Login">
