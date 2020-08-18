@@ -1,0 +1,114 @@
+.album-contain {
+    perspective: 2000px;
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .wrapper {
+        animation: inifiteAnimate 7s linear infinite; /* 设置关键帧动画 */
+        height: 200px;
+        margin: 300px auto;
+        position: relative;
+        transform-style: preserve-3d; /* 设置3D模型 */
+        width: 200px;
+    }
+
+    /* 关键帧动画 */
+    @keyframes inifiteAnimate {
+        0% {
+            transform: rotateX(0deg) rotateY(0deg);
+        }
+        100% {
+            transform: rotateX(360deg) rotateY(360deg);
+        }
+    }
+
+    .min-box,
+    .max-box {
+        height: 100%;
+        left: 50%;
+        position: absolute; /* 居中 */
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transform-style: preserve-3d; /* 设置3D模型 */
+        transition: all 2s;
+        width: 100%;
+    }
+
+    .item {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        opacity: 0.6;
+        position: absolute;
+        transition: all 2s;
+        width: 100%;
+    }
+
+    .item1 {
+        background-image: url(@/assets/cube/1.jpg);
+        transform: translateZ(100px);
+    }
+
+    .item2 {
+        background-image: url(@/assets/cube/2.jpg);
+        transform: rotateY(90deg) translateZ(100px);
+    }
+
+    .item3 {
+        background-image: url(@/assets/cube/3.jpg);
+        transform: rotateY(-90deg) translateZ(100px);
+    }
+
+    .item4 {
+        background-image: url(@/assets/cube/4.jpg);
+        transform: rotateY(-180deg) translateZ(100px);
+    }
+
+    .item5 {
+        background-image: url(@/assets/cube/5.jpg);
+        transform: rotateX(90deg) translateZ(100px);
+    }
+
+    .item6 {
+        background-image: url(@/assets/cube/6.jpg);
+        transform: rotateX(-90deg) translateZ(100px);
+    }
+
+    .wrapper:hover .max-box {
+        height: 300px;
+        width: 300px;
+    }
+
+    .wrapper:hover .max-box .item {
+        height: 300px;
+        width: 300px;
+    }
+
+    .wrapper:hover .max-box .item1 {
+        transform: translateZ(300px);
+    }
+
+    .wrapper:hover .max-box .item2 {
+        transform: rotateY(90deg) translateZ(300px);
+    }
+
+    .wrapper:hover .max-box .item3 {
+        transform: rotateY(-90deg) translateZ(300px);
+    }
+
+    .wrapper:hover .max-box .item4 {
+        transform: rotateY(-180deg) translateZ(300px);
+    }
+
+    .wrapper:hover .max-box .item5 {
+        transform: rotateX(90deg) translateZ(300px);
+    }
+
+    .wrapper:hover .max-box .item6 {
+        transform: rotateX(-90deg) translateZ(300px);
+    }
+}

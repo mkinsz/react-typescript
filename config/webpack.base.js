@@ -14,7 +14,7 @@ module.exports = {
     // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: ['.ts', '.tsx', '.js', '.json'],
     alias: {
-      '@': config.sourceDir,
+      '@': config.appDir,
     },
   },
   module: {

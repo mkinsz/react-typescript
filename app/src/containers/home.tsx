@@ -6,6 +6,7 @@ import { AppBar, Tabs, Tab } from "@material-ui/core";
 import Dashboard from "../components/dashboard";
 import Extension from "../components/extension";
 import About from "../components/about";
+import Album from "../components/album";
 import Wrap from "../components/wrap";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -46,6 +47,7 @@ const Home = (props: any) => {
     return (
         <Wrap title="Home">
             <div className={classes.root}>
+                {/* <Album /> */}
                 <AppBar position="static" color="default">
                     <Tabs
                         value={value}
