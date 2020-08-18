@@ -13,7 +13,7 @@ function login(username: string, password: string) {
     userService.login(username, password).then(({ data: { auth } }) => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem("user", JSON.stringify(username));
-        history.push("/");
+        history.replace("/");
         console.log("Login Repsonse: ", auth);
 
         return auth;

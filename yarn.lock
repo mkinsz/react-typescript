@@ -8764,6 +8764,11 @@ stylehacks@^4.0.0:
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
 
+stylelint-config-prettier@^8.0.2:
+  version "8.0.2"
+  resolved "https://registry.npm.taobao.org/stylelint-config-prettier/download/stylelint-config-prettier-8.0.2.tgz?cache=0&sync_timestamp=1592608785034&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fstylelint-config-prettier%2Fdownload%2Fstylelint-config-prettier-8.0.2.tgz#da9de33da4c56893cbe7e26df239a7374045e14e"
+  integrity sha1-2p3jPaTFaJPL5+Jt8jmnN0BF4U4=
+
 stylelint-config-recommended@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npm.taobao.org/stylelint-config-recommended/download/stylelint-config-recommended-3.0.0.tgz#e0e547434016c5539fe2650afd58049a2fd1d657"
