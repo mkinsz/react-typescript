@@ -1,5 +1,4 @@
 import graphQLFetcher from "./service";
-import gql from "graphql-tag";
 
 export const userService = {
     login,

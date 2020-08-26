@@ -1,49 +1,25 @@
 import { AuthConsts } from "../constants";
 import { userService } from "../services";
-import { history } from "../helpers";
+import { useHistory } from "react-router-dom";
 
-export const userActions = {
-    login,
-    logout,
-    register,
+export const useAuthActions = () => {
+    const history = useHistory();
+
+    const login = (username: string, password: string) => {
+        userService.login(username, password).then(({ data: { auth } }) => {
+            localStorage.setItem("user", JSON.stringify(username));
+            history.replace("/");
+            console.log("Login Repsonse: ", auth);
+            return auth;
+        });
+    };
+
+    function logout() {
+        userService.logout();
+        return { type: AuthConsts.LOGOUT };
+    }
+
+    function register(user: string) {}
+
+    return { login, logout, register };
 };
-
-function login(username: string, password: string) {
-    // dispatch(request({ name: username }));
-    userService.login(username, password).then(({ data: { auth } }) => {
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem("user", JSON.stringify(username));
-        history.replace("/");
-        console.log("Login Repsonse: ", auth);
-
-        return auth;
-    });
-    //     .then(
-    //         user => {
-    //             dispatch(success(user));
-    //             history.push('/');
-    //         },
-    //         error => {
-    //             dispatch(failure(error.toString()));
-    //             dispatch(alertActions.error(error.toString()));
-    //         }
-    //     );
-    // };
-
-    // function request(user: string) {
-    //     return { type: AuthConsts.LOGIN_REQUEST, user };
-    // }
-    // function success(user: string) {
-    //     return { type: AuthConsts.LOGIN_SUCCESS, user };
-    // }
-    // function failure(error: string) {
-    //     return { type: AuthConsts.LOGIN_FAILURE, error };
-    // }
-}
-
-function logout() {
-    userService.logout();
-    return { type: AuthConsts.LOGOUT };
-}
-
-function register(user: string) {}

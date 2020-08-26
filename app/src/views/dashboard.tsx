@@ -1,12 +1,12 @@
 import React from "react";
 import { Button } from "@material-ui/core";
 
-const Extension = () => {
+const DashBoard = () => {
     return (
         <Button variant="contained" color="primary">
-            Extension
+            Dashboard
         </Button>
     );
 };
 
-export default Extension;
+export default DashBoard;

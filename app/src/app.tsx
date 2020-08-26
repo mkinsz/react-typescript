@@ -1,11 +1,16 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation, Redirect } from "react-router-dom";
+import { ThemeProvider } from "@material-ui/core";
 import ParticlesBg from "particles-bg";
-import Home from "./home";
-import Login from "./login";
-import Register from "./register";
-import AuthRoute from "../components/authroute";
+
+import GlobalStyles from "./components/globalstyles";
+import theme from "./views/theme";
+
+import Home from "./views/home";
+import Login from "./views/login";
+import Register from "./views/register";
+import AuthRoute from "./components/authroute";
 
 const App = (props: { store: any }) => {
     // type ConfigProp = {
@@ -65,11 +70,14 @@ const App = (props: { store: any }) => {
 
     return (
         <Provider store={props.store}>
-            <Switch>
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/register" component={Register} />
-                <AuthRoute path="/" component={Home} />
-            </Switch>
+            <ThemeProvider theme={theme}>
+                <GlobalStyles />
+                <Switch>
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/register" component={Register} />
+                    <AuthRoute path="/" component={Home} />
+                </Switch>
+            </ThemeProvider>
             <ParticlesBg type="custom" bg={true} config={pgconfig} />
         </Provider>
     );
